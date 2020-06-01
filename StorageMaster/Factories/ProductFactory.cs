@@ -1,18 +1,25 @@
 ﻿using StorageMaster.Model.Products;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StorageMaster.Factories
 {
-    class ProductFactory
+    public class ProductFactory
     {
         public Product CreateProduct(string type, double price)
         {
-            var productType = Assembly
+            switch (type)
+            {
+                case "Gpu":
+                    return new Gpu(price);
+                case "HardDrive":
+                    return new HardDrive(price);
+                case "Ram":
+                    return new Ram(price);
+                case "SolidStateDrive":
+                    return new SolidStateDrive(price);
+                default: throw new InvalidOperationException("Invalid Product Type!");
+            }
+            /*var productType = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
                 .Where(x => !x.IsAbstract && x.Name == type)
@@ -33,7 +40,8 @@ namespace StorageMaster.Factories
             {
                 throw new InvalidOperationException(tie.InnerException.Message);
             }
-            return product;
+            return product;*/
         }
+
     }
 }
