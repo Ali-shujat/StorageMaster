@@ -42,9 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\StorageMaster.cs" />
     <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\StorageFactory.cs" />
+    <Compile Include="IO\ConsoleDataReader.cs" />
+    <Compile Include="IO\ConsoleDataWriter.cs" />
+    <Compile Include="IO\Contracts\IReader.cs" />
+    <Compile Include="IO\Contracts\IWriter.cs" />
     <Compile Include="Model\Products\Gpu.cs" />
     <Compile Include="Model\Products\HardDrive.cs" />
     <Compile Include="Model\Products\Ram.cs" />
@@ -64,5 +69,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
